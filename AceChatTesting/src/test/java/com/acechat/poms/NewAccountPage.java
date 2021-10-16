@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class NewAccountPage {
+	
 	@FindBy(id="username-box")
 	private WebElement usernameBox;
 	@FindBy(id="name-box")

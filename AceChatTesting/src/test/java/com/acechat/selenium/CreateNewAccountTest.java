@@ -30,8 +30,8 @@ private static WebDriver driver;
 	@Test
 	public void createNewAccount() {
 		NewAccountPage newAccountPage = new NewAccountPage(driver);
-		newAccountPage.createNewAccount("User1", "Name1", "Pass1", "None");
-		Assert.assertEquals("unsuccessfully redirected", "http://localhost:4200/new-user", driver.getCurrentUrl());
+		newAccountPage.createNewAccount("TestUser", "TestName", "TestPass", "");
+		Assert.assertEquals("unsuccessfully redirected", "http://localhost:4200/login", driver.getCurrentUrl());
 	}
 	
 	@AfterClass

@@ -23,7 +23,7 @@ public class LoginTest {
 	@Test
 	public void login() {
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.login("person@gmail.com", "person");		
+		loginPage.login("ethan", "e");		
 		Assert.assertEquals("unsuccessfully redirected", "http://localhost:4200/login", driver.getCurrentUrl());
 	}
 	
