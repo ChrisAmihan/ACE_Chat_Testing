@@ -25,9 +25,9 @@ public class FriendsPage {
 	private WebElement muteButton1;
 	@FindBy(id="delete-button-1")
 	private WebElement deleteButton1;
-	@FindBy(id="new-chat-link")
+	@FindBy(linkText="Create New Chat")
 	private WebElement newChatLink;
-	@FindBy(id="settings-link")
+	@FindBy(linkText="Settings")
 	private WebElement settingsLink;
 	@FindBy(id="friends-link")
 	private WebElement friendsLink;

@@ -17,10 +17,11 @@
 ## (Comments)
 #Sample Feature Definition Template
 
-Feature: Login for Ace Chat
+Feature: Creating a new account for ACE Chat
 
-	Scenario: Logging into Ace Chat with correct credentials
-		Given a user is on the login page of Ace Chat
-		When the user inputs the correct username and password
-		Then the user is redirected to the main page
-		
+  Scenario: Creating a new account
+    Given the user is on the create new account page
+    When the user enters in a new username, name, and password without a pic
+    And the user clicks the button
+    Then the user is redirected to the login page
+
