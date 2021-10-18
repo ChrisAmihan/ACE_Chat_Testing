@@ -19,7 +19,7 @@ public class SettingsPage {
 	private WebElement updatePasswordAndNameButton;
 	@FindBy(id="friends-link")
 	private WebElement friendsLink;
-	@FindBy(id="settings-link")
+	@FindBy(linkText="Settings")
 	private WebElement settingsLink;
 	@FindBy(id="logout-button")
 	private WebElement logoutButton;

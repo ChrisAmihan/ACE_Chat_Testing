@@ -1,12 +1,16 @@
 package com.acechat.selenium;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.acechat.poms.FriendsPage;
 import com.acechat.poms.LoginPage;
 
 public class LoginTest {
@@ -17,14 +21,27 @@ public class LoginTest {
 	public static void setUp() {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.get("http://localhost:4200/login");
+		driver.get("http://acechat2021.s3-website-us-east-1.amazonaws.com/");
 	}
 	
 	@Test
 	public void login() {
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.login("ethan", "e");		
-		Assert.assertEquals("unsuccessfully redirected", "http://localhost:4200/login", driver.getCurrentUrl());
+		loginPage.login("ethan", "e");
+		WebDriverWait wait2 = new WebDriverWait(driver, 3);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		System.out.println(driver.getCurrentUrl());
+		Assert.assertEquals("unsuccessfully redirected", "http://acechat2021.s3-website-us-east-1.amazonaws.com/login", driver.getCurrentUrl());
+	}
+	
+	@Test
+	public void logout() {
+		FriendsPage friendsPage = new FriendsPage(driver);
+		WebDriverWait wait2 = new WebDriverWait(driver, 3);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		friendsPage.logout();
+		System.out.println(driver.getCurrentUrl());
+		Assert.assertEquals("unsuccesfully redirected", "http://acechat2021.s3-website-us-east-1.amazonaws.com/login", driver.getCurrentUrl());
 	}
 	
 	@AfterClass
